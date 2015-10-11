@@ -26,6 +26,9 @@ public class S3Reader {
         AWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
         AmazonS3Client c = new AmazonS3Client(credentials);
         c.setRegion(region);
+        String endpoint = region.toString() + ".amazonaws.com";
+        System.out.println("KIRSTEN - ENDPOINT=" + endpoint);
+        c.setEndpoint(endpoint);
 
         S3Object o = c.getObject(bucket, key);
 
